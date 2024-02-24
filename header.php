@@ -9,12 +9,6 @@
 <body <?php body_class(); ?> >
     <div id="container">
         <div id="logo">
-            <?php 
-            // if(is_home()){
-                printf('<h1><a href="%1$s" title="%2$s">%3$s</a></h1>',
-                    get_bloginfo('url'),
-                    get_bloginfo('description'),
-                    get_bloginfo('sitename'));
-            // }
-            ?>
+            <?php cuong_theme_header() ?>
+            <?php cuong_theme_menu('primary-menu') ?>
         </div>

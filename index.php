@@ -1,4 +1,2 @@
-<?php get_header(); 
-
-echo("123123")
-?>
+<?php get_header(); ?>
+<?php get_footer(); ?>

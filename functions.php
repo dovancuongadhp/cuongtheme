@@ -1,28 +1,30 @@
 <?php
+
 /**
-* Khai bao hang gia tri
-	* THEME_URL = lay duong dan thu muc theme
-	* CORE = lay duong dan thu muc core
-**/
+ * Khai bao hang gia tri
+ * THEME_URL = lay duong dan thu muc theme
+ * CORE = lay duong dan thu muc core
+ **/
 define('THEME_URL', get_stylesheet_directory());
-define('CORE', THEME_URL."/core");
+define('CORE', THEME_URL . "/core");
 /**
-* Nhung file /core/init.php
-**/
-require_once(CORE."/init.php");
+ * Nhung file /core/init.php
+ **/
+require_once(CORE . "/init.php");
 /**
-* Thiet lap chieu rong noi dung
-**/
+ * Thiet lap chieu rong noi dung
+ **/
 if (!isset($contet_width)) {
 	$contet_width = 620;
 }
 /**
-* Khai bao chuc nang cua theme
-**/
-if (!function_exists('cuong_theme_setup')){
-	function cuong_theme_setup(){
+ * Khai bao chuc nang cua theme
+ **/
+if (!function_exists('cuong_theme_setup')) {
+	function cuong_theme_setup()
+	{
 		/* Thiết lập text domain */
-		$language_folder = THEME_URL."/languages";
+		$language_folder = THEME_URL . "/languages";
 		load_theme_textdomain('cuongtheme', $language_folder);
 		/* Tu dong them link RSS len <head> */
 		add_theme_support('automactic-feed-links');
@@ -42,7 +44,7 @@ if (!function_exists('cuong_theme_setup')){
 		$default_background = array(
 			'default-color' => "#e8e8e8"
 		);
-		add_theme_support('custom-background',$default_background);
+		add_theme_support('custom-background', $default_background);
 		/* Theme menu*/
 		register_nav_menu('primary-menu', __('Primary Menu', 'cuongtheme'));
 		/* Tao sidebar */
@@ -57,4 +59,42 @@ if (!function_exists('cuong_theme_setup')){
 		register_sidebar($sidebar);
 	}
 	add_action('init', 'cuong_theme_setup');
+}
+/** TEMPLATE FUNCTION */
+if (!function_exists('cuong_theme_header')) {
+	function cuong_theme_header()
+	{ ?>
+		<div class="site-name">
+			<?php
+			if (is_home()) {
+				printf(
+					'<h1><a href="%1$s" title="%2$s">%3$s</a></h1>',
+					get_bloginfo('url'),
+					get_bloginfo('description'),
+					get_bloginfo('sitename')
+				);
+			} else {
+				printf(
+					'<p><a href="%1$s" title="%2$s">%3$s</a></p>',
+					get_bloginfo('url'),
+					get_bloginfo('description'),
+					get_bloginfo('sitename')
+				);
+			}
+			?>
+		</div>
+		<div class="site-description"><?php bloginfo('description') ?></div>
+<?php
+	}
+}
+/**THIET LAP FUNCTION */
+if (!function_exists('cuong_theme_menu')){
+	function cuong_theme_menu($menu){
+		$menu = array(
+			'theme_location' => $menu,
+			'container' => 'nav',
+			'container_class' => $menu
+		);
+		wp_nav_menu($menu);
+	}
 }
