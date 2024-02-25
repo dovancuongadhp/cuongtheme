@@ -1,6 +1,6 @@
 <footer id="footer">
     <div class="copyright">
-        &copy; - <?php echo date('Y') ?> - <?php bloginfo('sitename')?>
+        <p>&copy; - <?php echo date('Y') ?> - <?php bloginfo('sitename')?>  </p>
     </div>
 </footer>
 </div> <!--end container  -->

@@ -84,17 +84,93 @@ if (!function_exists('cuong_theme_header')) {
 			?>
 		</div>
 		<div class="site-description"><?php bloginfo('description') ?></div>
-<?php
+	<?php
 	}
 }
-/**THIET LAP FUNCTION */
-if (!function_exists('cuong_theme_menu')){
-	function cuong_theme_menu($menu){
+/* THIET LAP MENU */
+if (!function_exists('cuong_theme_menu')) {
+	function cuong_theme_menu($menu)
+	{
 		$menu = array(
 			'theme_location' => $menu,
 			'container' => 'nav',
 			'container_class' => $menu
 		);
 		wp_nav_menu($menu);
+	}
+}
+
+/* PHAN TRANG */
+if (!function_exists('cuong_theme_pagination')) {
+	function cuong_theme_pagination()
+	{
+		if ($GLOBALS['wp_query']->max_num_pages < 2) {
+			return '';
+		} ?>
+		<nav class="pagination" role="navigation">
+			<?php if (get_next_posts_link()) : ?>
+				<div class="prev"><?php next_posts_link(__('Older Posts', 'cuongtheme')); ?></div>
+			<?php endif; ?>
+			<?php if (get_previous_posts_link()) : ?>
+				<div class="next"><?php previous_posts_link(__('Newest Posts', 'cuongtheme')) ?></div>
+			<?php endif; ?>
+		</nav>
+		<?php }
+}
+
+/* HAM HIEN THI THUMBNAIL */
+if (!function_exists('cuong_theme_thumbnail')) {
+	function cuong_theme_thumbnail($size)
+	{
+		if (!is_single() && has_post_thumbnail() && !post_password_required() || has_post_format('image')) { ?>
+			<figure id="post-thumbnail"><?php the_post_thumbnail($size) ?></figure>
+
+		<?php	}
+	}
+}
+
+/* HAM HIEN THI TIEU DE POST */
+if (!function_exists('cuong_theme_entry_header')) {
+	function cuong_theme_entry_header()
+	{ ?>
+		<?php if (is_single()) : ?>
+			<h1 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title() ?></a></h1>
+		<?php else : ?>
+			<h4 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title() ?></a></h4>
+		<?php endif ?>
+	<?php }
+}
+/* LAY DU LIEU POST */
+if (!function_exists('cuong_theme_entry_meta')) {
+	function cuong_theme_entry_meta()
+	{ ?>
+		<?php if (!is_page()) : ?>
+			<div class="entry-meta">
+				<?php
+					printf(__('<span class="author">Posted by %1$s</span>'),
+					get_the_author() );
+
+					printf(__('<span class="date-published"> at %1$s</span>'),
+					get_the_date()
+					);
+
+					printf(__('<span class="category"> in %1$s</span>'),
+					get_the_category_list(',')
+					);
+					echo '</br>';
+					if(comments_open()){
+						echo '<span class="reply">';
+							comments_popup_link(
+								__('Leave a comment','cuongtheme'),
+								__('One comment','cuongtheme'),
+								__('% comments','cuongtheme'),
+								__('Read all comments','cuongtheme'),
+							);
+						echo '</span>';
+					}
+				?>
+			</div>
+		<?php endif ?>
+<?php
 	}
 }
