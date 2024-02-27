@@ -1,24 +1,24 @@
 <?php
 
 /**
- * Khai bao hang gia tri
- * THEME_URL = lay duong dan thu muc theme
- * CORE = lay duong dan thu muc core
+ * Khai báo hằng giá trị
+ * THEME_URL = lấy đường dẫn thư mục theme
+ * CORE = lấy đường dẫn thư mục core
  **/
 define('THEME_URL', get_stylesheet_directory());
 define('CORE', THEME_URL . "/core");
 /**
- * Nhung file /core/init.php
+ * Nhúng file /core/init.php
  **/
 require_once(CORE . "/init.php");
 /**
- * Thiet lap chieu rong noi dung
+ * Thiết lập chiều rộng của nội dung
  **/
 if (!isset($contet_width)) {
 	$contet_width = 620;
 }
 /**
- * Khai bao chuc nang cua theme
+ * Khai báo chức năng của theme
  **/
 if (!function_exists('cuong_theme_setup')) {
 	function cuong_theme_setup()
@@ -26,9 +26,9 @@ if (!function_exists('cuong_theme_setup')) {
 		/* Thiết lập text domain */
 		$language_folder = THEME_URL . "/languages";
 		load_theme_textdomain('cuongtheme', $language_folder);
-		/* Tu dong them link RSS len <head> */
+		/* Tự động thêm link RSS lên <head> */
 		add_theme_support('automactic-feed-links');
-		/* Them post thumbnail*/
+		/* Thêm post thumbnail*/
 		add_theme_support('post-thumbnails');
 		/* Post format */
 		add_theme_support('post-formats', array(
@@ -38,16 +38,16 @@ if (!function_exists('cuong_theme_setup')) {
 			'quote',
 			'link'
 		));
-		/* Them title tag */
+		/* Thêm title tag */
 		add_theme_support('title-tag');
-		/* Them custom background*/
+		/* Thêm custom background*/
 		$default_background = array(
 			'default-color' => "#e8e8e8"
 		);
 		add_theme_support('custom-background', $default_background);
 		/* Theme menu*/
 		register_nav_menu('primary-menu', __('Primary Menu', 'cuongtheme'));
-		/* Tao sidebar */
+		/* Tạo sidebar */
 		$sidebar = array(
 			'name' => __('Main sidebar', 'cuongtheme'),
 			'id' => 'main-sidebar',
@@ -100,7 +100,7 @@ if (!function_exists('cuong_theme_menu')) {
 	}
 }
 
-/* PHAN TRANG */
+/* Phân trang */
 if (!function_exists('cuong_theme_pagination')) {
 	function cuong_theme_pagination()
 	{
@@ -118,7 +118,7 @@ if (!function_exists('cuong_theme_pagination')) {
 		<?php }
 }
 
-/* HAM HIEN THI THUMBNAIL */
+/* Hiển thị thumbnail */
 if (!function_exists('cuong_theme_thumbnail')) {
 	function cuong_theme_thumbnail($size)
 	{
@@ -129,7 +129,7 @@ if (!function_exists('cuong_theme_thumbnail')) {
 	}
 }
 
-/* HAM HIEN THI TIEU DE POST */
+/* Hiển thị tiêu đề post */
 if (!function_exists('cuong_theme_entry_header')) {
 	function cuong_theme_entry_header()
 	{ ?>
@@ -140,7 +140,7 @@ if (!function_exists('cuong_theme_entry_header')) {
 		<?php endif ?>
 	<?php }
 }
-/* LAY DU LIEU POST */
+/* Lấy dữ liệu post */
 if (!function_exists('cuong_theme_entry_meta')) {
 	function cuong_theme_entry_meta()
 	{ ?>
@@ -153,7 +153,6 @@ if (!function_exists('cuong_theme_entry_meta')) {
 					printf(__('<span class="date-published"> at %1$s</span>'),
 					get_the_date()
 					);
-
 					printf(__('<span class="category"> in %1$s</span>'),
 					get_the_category_list(',')
 					);
@@ -174,3 +173,5 @@ if (!function_exists('cuong_theme_entry_meta')) {
 <?php
 	}
 }
+
+/* Hàm hiển thị nội dung của post */
