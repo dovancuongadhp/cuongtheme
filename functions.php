@@ -175,3 +175,39 @@ if (!function_exists('cuong_theme_entry_meta')) {
 }
 
 /* Hàm hiển thị nội dung của post */
+
+if (!function_exists('cuong_theme_entry_content')){
+	function cuong_theme_entry_content(){
+		if( !is_single() ){
+			the_excerpt();
+		} else {
+			the_content();
+			/* Phân trang trong single */
+			$link_pages = array(
+				'before' => __('<p>Page: ', 'cuongtheme'),
+				'after' => '</p>',
+				'nextpagelink' => __('Next Page', 'cuongtheme'),
+				'previouspagelink' => __('Previos Page', 'cuongtheme')
+			);
+			wp_link_pages($link_pages);
+		}
+	}
+}
+
+function cuong_theme_readmore(){
+	return '<a class="read-more" href="'.get_permalink(get_the_ID()).'">'.__('...[Read More]','cuongtheme').'</a>';
+}
+add_filter('excerpt_more', 'cuong_theme_readmore');
+
+/* Hiển thị tag */
+if(!function_exists('cuong_theme_entry_tag')){
+	function cuong_theme_entry_tag(){
+		if (has_tag()){
+			echo '<div class="entry-tag">';
+			printf(__('Tagged in %1$s','cuong_theme'), 
+			get_the_tag_list('',''),
+		);
+			echo  '</div>';
+		}
+	}
+}

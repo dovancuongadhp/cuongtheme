@@ -7,6 +7,9 @@
             <?php cuong_theme_entry_header() ?>
             <?php cuong_theme_entry_meta() ?>
         </div>
+        <div class="entry-content">
+            <?php cuong_theme_entry_content() ?>
+            <?php (is_single()) ? cuong_theme_entry_tag() : '' ?>
+        </div>
     </div>
-    <div class="entry-content"></div>
 </article>
