@@ -8,8 +8,9 @@ get_header();
             while (have_posts()) : 
                 the_post(); 
                 get_template_part('content', get_post_format()); 
+                get_template_part('author-bio'); 
+                comments_template(); 
             endwhile; 
-            cuong_theme_pagination(); 
         else : 
             get_template_part('content', 'none'); 
         endif; 
