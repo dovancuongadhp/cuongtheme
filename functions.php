@@ -174,11 +174,11 @@ if (!function_exists('cuong_theme_entry_meta')) {
 	}
 }
 
-/* Hàm hiển thị nội dung của post */
+/* Hàm hiển thị nội dung của post/page */
 
 if (!function_exists('cuong_theme_entry_content')){
 	function cuong_theme_entry_content(){
-		if( !is_single() ){
+		if( !is_single() && !is_page()){
 			the_excerpt();
 		} else {
 			the_content();
