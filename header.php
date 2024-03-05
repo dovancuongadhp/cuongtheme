@@ -8,7 +8,7 @@
 </head>
 <body <?php body_class(); ?> >
     <div id="container">
-        <div id="logo">
+        <div class="logo">
             <?php cuong_theme_header() ?>
             <?php cuong_theme_menu('primary-menu') ?>
         </div>

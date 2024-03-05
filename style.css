@@ -9,3 +9,101 @@
  * Languages Folder: /language
 
 */
+html {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+body {
+    font-size: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+a {
+    color: #ff5c1c;
+    text-decoration: none;
+}
+a:hover, a:visited {
+    color: #a71300;
+    text-decoration: underline;
+}
+input, input[type="submit"], button {
+    border: 1px solid #c8c8c8 !important;
+    padding: 5px 10px;
+}
+h1 {
+    font-size: 2.2em;
+}
+h2 {
+    font-size: 2em;
+}
+h3 {
+    font-size: 1.8em;
+}
+h4 {
+    font-size: 1.55em;
+}
+h5 {
+    font-size: 1.3em;
+}
+h6 {
+    font-size: 1.1em;
+}
+
+table, table tr, table td {
+    border: 1px solid #e7e7e7;
+    padding: 8px
+}
+
+/* Chia cot website */
+#container {
+    width: 1024px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #d1d1d1;
+    padding: 10px 25px;
+}
+.content {
+    overflow: hidden;
+}
+#main-content{
+    width: 620px;
+    float: left;
+    margin-right: 10px;
+}
+#sidebar{
+    width: 320px;
+    float: right;
+    margin-left: 10px;
+    padding-left: 20px;
+}
+
+/*Header*/
+/*Logo*/
+.logo{
+    margin-bottom: 30px;
+    line-height: 2em;
+}
+.logo .site-name {
+
+}
+.logo .site-name h1 {
+    margin: 0;
+    font-size: 0;
+}
+.logo .site-name a {
+    color: blue;
+    font-size: 32px;
+    font-weight: bold;
+}
+.logo .site-description {
+    margin-top: -1em;
+    color: #535353;
+    font-family: serif;
+    font-size: 1.04 em;
+    font-style: italic;
+}
