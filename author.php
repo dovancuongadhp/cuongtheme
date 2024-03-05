@@ -2,7 +2,7 @@
 get_header();
 ?>
 <div class="content">
-    <div class="main-content">
+    <div id="main-content">
         <div class="author-box">
             <?php get_template_part('author-bio'); ?>
         </div>

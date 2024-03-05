@@ -2,7 +2,7 @@
 get_header(); 
 ?>
 <div class="content">
-    <div class="main-content">
+    <div id="main-content">
         <div class="search-info">
             <?php 
                 $search_query = new WP_Query('s='.$s.'&showpost=-1');

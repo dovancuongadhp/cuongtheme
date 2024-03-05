@@ -2,7 +2,7 @@
 get_header(); 
 ?>
 <div class="content">
-    <div class="main-content">
+    <div id="main-content">
     <?php 
         _e('<h2>404 NOT FOUND</h2>','cuongtheme');
         _e('<p>The article you were looking for was not found, but maybe try looking again</p>','cuongtheme');

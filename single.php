@@ -2,7 +2,7 @@
 get_header(); 
 ?>
 <div class="content">
-    <div class="main-content">
+    <div id="main-content">
         <?php 
         if (have_posts()) : 
             while (have_posts()) : 

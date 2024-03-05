@@ -2,7 +2,7 @@
 get_header();
 ?>
 <div class="content">
-    <div class="main-content">
+    <div id="main-content">
         <div class="archive-title">
             <?php
             if (is_tag()) :
