@@ -107,3 +107,11 @@ table, table tr, table td {
     font-size: 1.04 em;
     font-style: italic;
 }
+.primary-menu::after{
+    /* display: table;
+    content: "123123";
+    clear: both; */
+    content: "";
+    display: block;
+    clear: both;
+}
