@@ -1,5 +1,5 @@
 <article id="post-<?php the_ID() ?>" <?php post_class() ?>>
-    <div style="background-color: bisque; margin: 10px; padding: 20px">
+    <div>
         <div class="entry-header">
             <?php cuong_theme_entry_header() ?>
         </div>

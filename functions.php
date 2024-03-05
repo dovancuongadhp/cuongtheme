@@ -216,5 +216,8 @@ if(!function_exists('cuong_theme_entry_tag')){
 function cuong_theme_style(){
 	wp_register_style('main-style',get_template_directory_uri()."/style.css",'all');
 	wp_enqueue_style('main-style');
+
+	wp_register_style('reset-style',get_template_directory_uri()."/reset.css",'all');
+	wp_enqueue_style('reset-style');
 }
 add_action('wp_enqueue_scripts', 'cuong_theme_style');

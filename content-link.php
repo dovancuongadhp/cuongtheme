@@ -1,5 +1,5 @@
 <article id="post-<?php the_ID() ?>" <?php post_class() ?>>
-    <div style="background-color: bisque; margin: 10px; padding: 20px">
+    <div>
         <div class="entry-header">
             <?php 
                 $link = get_post_meta($post->ID, 'format_link_url', true);
