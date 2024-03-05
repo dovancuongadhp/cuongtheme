@@ -211,3 +211,10 @@ if(!function_exists('cuong_theme_entry_tag')){
 		}
 	}
 }
+
+/* Nhúng file style.css */
+function cuong_theme_style(){
+	wp_register_style('main-style',get_template_directory_uri()."/style.css",'all');
+	wp_enqueue_style('main-style');
+}
+add_action('wp_enqueue_scripts', 'cuong_theme_style');
