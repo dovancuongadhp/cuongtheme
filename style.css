@@ -217,3 +217,25 @@ table, table tr, table td {
 .author-avatar img {
     border-radius: 65px;
 }
+
+/* sidebar*/
+#sidebar ul,
+#sidebar ol,
+#sidebar li {
+    margin: 0;
+    list-style: none;
+}
+.widget {
+    background-color: #f7f7f7;
+    border: 1px solid #e8e8e8;
+    padding: 1em;
+    margin: 15px 0;
+}
+.widget ul {
+    list-style: none;
+    padding-left: 1.7em !important;
+}
+.widget ul li {
+    margin-bottom: 8px !important;
+    list-style: square !important;
+}
